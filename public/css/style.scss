@@ -1,0 +1,245 @@
+//TODO
+// typography color linespacing etc
+// mobile responiceness
+// proj card effect
+//arrow animation
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+body {
+  overflow-x: hidden;
+  font-family: sf-ui-light, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "sf-ui-display";
+  src: url("/public/fonts/SFUIDisplay-Regular.otf");
+}
+
+@font-face {
+  font-family: "sf-ui-light";
+  src: url("/public/fonts/SFUIText-Light.otf");
+}
+
+nav {
+  height: 10vh;
+  border-bottom: 1px solid gray;
+  font-size: 22px;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  z-index: 99;
+  .logo {
+    align-self: center;
+    margin-left: 5%;
+  }
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 30%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.nav-links li a:hover {
+  background-color: #efefef;
+}
+
+h2 {
+  font-family: sf-ui-display;
+  margin-top: 40px;
+  font-size: 45px;
+  color: #333333;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 104px;
+    font-family: sf-ui-display;
+    font-weight: 400;
+    color: #333333;
+    img {
+      height: 100px;
+      position: relative;
+      top: 10px;
+    }
+  }
+  p {
+    font-size: 30px;
+    width: 80%;
+    margin: auto;
+  }
+}
+.container {
+  max-width: 80%;
+  margin: auto;
+  padding-top: 10vh;
+}
+
+.projects {
+  background-color: #f5f5f7;
+  text-align: center;
+  a {
+    color: #333333;
+    font-size: 25px;
+    text-decoration: none;
+  }
+  a:hover #arrow {
+    transform: translateX(-30px);
+  }
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .proj {
+    width: 513px;
+    margin: 30px;
+    background-color: gray;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+figure {
+  position: relative;
+  overflow: hidden;
+  img {
+    display: block;
+  }
+  figcaption {
+    position: absolute;
+    top: 110%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(#4e43c2, 0.7);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-end;
+    padding: 2em;
+    opacity: 0;
+    transition: opacity ease-in 200ms;
+    // transition: top opacity ease-in-out 250ms;
+    h4 {
+      font-size: 40px;
+      color: white;
+    }
+    p {
+      color: white;
+    }
+  }
+
+  &:hover figcaption,
+  &:focus figcaption {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.aboutme {
+  text-align: center;
+  height: 100vh;
+  p {
+    margin-top: 40px;
+    font-size: 25px;
+  }
+}
+
+.contact {
+  background-color: #e3f0f6;
+  height: 100vh;
+  text-align: center;
+}
+
+// media queries
+@media screen and (max-width: 786px) {
+  .container {
+    max-width: 90%;
+  }
+  nav {
+    position: fixed;
+  }
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+  }
+  .hamburger {
+    background-color: yellow;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+  }
+  .nav-links {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(10px at 90% -10%);
+    -webkit-clip-path: circle(10px at 90% -10%);
+    transition: all 0.9s ease-out;
+    pointer-events: none;
+    background-color: white;
+  }
+
+  .nav-links.open {
+    pointer-events: all;
+    clip-path: circle(1000px at 90% -10%);
+    -webkit-clip-path: circle(1000px at 90% -10%);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .project-container .proj {
+    margin: 10px;
+  }
+  .project-container {
+    padding: 0;
+  }
+}
